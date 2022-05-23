@@ -18,6 +18,7 @@ WORKDIR "/var/www"
 COPY . /var/www
 
 RUN chown -R 1001:0 /var/www
+RUN chown -R 1001:0 /.npm
 USER 1001
 
 RUN npm install --production && mkdir -p tmp

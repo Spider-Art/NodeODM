@@ -17,6 +17,9 @@ RUN mkdir /var/www
 WORKDIR "/var/www"
 COPY . /var/www
 
+RUN chown -R 1001:0 /var/www
+USER 1001
+
 RUN npm install --production && mkdir -p tmp
 
 ENTRYPOINT ["/usr/bin/node", "/var/www/index.js"]
